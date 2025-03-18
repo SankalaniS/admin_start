@@ -110,7 +110,7 @@ $orders = [
                         </div>
                     </div>
                     <div class="card-body">
-                        <canvas id="salesChart" height="300"></canvas>
+                        <canvas id="salesChart" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -127,14 +127,26 @@ $orders = [
                 </div>
             </div>
         </div>
-    
+        <div class="row mt-4" >
+            <!-- Chat box -->
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-header">
+                        <h5 class="mb-0">Direct Chat</h5>
+                </div>
+                <div class="chat-container">
+                  <?php include 'chatbox.php'; ?>
+                </div>
+              </div>
+            </div>
+        </div>
 
         
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhzffYwCyuAgmgIIACQC04VjtiXlw0Bzg&callback=initMap" async defer></script>
     <script>
         // Initialize the area chart
         const ctx = document.getElementById('salesChart').getContext('2d');
