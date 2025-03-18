@@ -114,7 +114,6 @@ $orders = [
                     </div>
                 </div>
             </div>
-
             <!-- Map -->
             <div class="col-lg-4">
                 <div class="card h-100">
@@ -127,6 +126,7 @@ $orders = [
                 </div>
             </div>
         </div>
+        
         <div class="row mt-4" >
             <!-- Chat box -->
             <div class="col-lg-8">
