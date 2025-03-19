@@ -144,29 +144,7 @@ $orders = [
                   <div class="card-header">
                       <h5 class="mb-0">Sales Graph</h5>
                   </div>
-                  <div class="card-body">
-                        <canvas id="salesChart" height="200"></canvas>
-                        <div class="row mt-4">
-                            <div class="col-4 text-center">
-                                <div class="progress" style="height: 100px; width: 100px; margin: auto;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%"></div>
-                                </div>
-                                <h6 class="mt-2">Mail-Orders</h6>
-                            </div>
-                            <div class="col-4 text-center">
-                                <div class="progress" style="height: 100px; width: 100px; margin: auto;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%"></div>
-                                </div>
-                                <h6 class="mt-2">Online</h6>
-                            </div>
-                            <div class="col-4 text-center">
-                                <div class="progress" style="height: 100px; width: 100px; margin: auto;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 30%"></div>
-                                </div>
-                                <h6 class="mt-2">In-Store</h6>
-                            </div>
-                        </div>
-                    </div>
+                  
               </div>
             </div>
         </div>
@@ -187,9 +165,7 @@ $orders = [
                 <div class="card-header">
                   <h5 class="mb-0">Calendar</h5>
                 </div>
-                <div class="card-body">
-                  <div id="calendar"></div>
-                </div>
+                
               </div>
             </div>
         </div>

@@ -113,21 +113,21 @@
         <div class="chat-list">
             <h6 class="text-center">Chats</h6>
             <div class="user-item" onclick="openChat('Nora S. Vans')">
-                <img src="https://via.placeholder.com/30" alt="User">
+                <img src="./images/nora new.jpg" alt="Nora">
                 <div>
                     <strong>Nora S. Vans</strong><br>
                     <small>Where is your new update?</small>
                 </div>
             </div>
             <div class="user-item" onclick="openChat('John K.')">
-                <img src="https://via.placeholder.com/30" alt="User">
+                <img src="./images/John.jpg" alt="John">
                 <div>
                     <strong>John K.</strong><br>
                     <small>Can we discuss the project?</small>
                 </div>
             </div>
             <div class="user-item" onclick="openChat('Emily D.')">
-                <img src="https://via.placeholder.com/30" alt="User">
+                <img src="./images/emily.jpg" alt="Emily">
                 <div>
                     <strong>Emily D.</strong><br>
                     <small>Thanks for your help!</small>
