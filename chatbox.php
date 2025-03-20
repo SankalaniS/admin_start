@@ -38,7 +38,6 @@
         .chat-list .user-item:hover {
             background: #495057;
         }
-        
         .user-item img {
             width: 30px;
             height: 30px;
