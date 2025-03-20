@@ -21,7 +21,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         .chat-list {
-            width: 30%;
+            width: 45%;
             background: #343a40;
             color: white;
             overflow-y: auto;
@@ -38,6 +38,7 @@
         .chat-list .user-item:hover {
             background: #495057;
         }
+        
         .user-item img {
             width: 30px;
             height: 30px;
