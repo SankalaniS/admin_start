@@ -60,7 +60,7 @@ $orders = [
         }
 
         .brand-link img {
-            width: 33px;
+            width: 150px;
             height: 33px;
             margin-right: 10px;
         }
@@ -87,6 +87,9 @@ $orders = [
             background: rgba(255, 255, 255, 0.1);
             border: none;
             color: #fff;
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 4px;
         }
 
         .nav-sidebar {
@@ -97,6 +100,10 @@ $orders = [
         .nav-item {
             margin: 0;
             padding: 0;
+        }
+
+        .nav-item.hidden {
+            display: none;
         }
 
         .nav-link {
@@ -164,6 +171,14 @@ $orders = [
             margin-right: 15px;
         }
 
+        .section {
+            scroll-margin-top: 70px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         @media (max-width: 768px) {
             .sidebar {
                 margin-left: -250px;
@@ -178,14 +193,6 @@ $orders = [
                 margin-left: 250px;
             }
         }
-
-        .section {
-            scroll-margin-top: 70px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
     </style>
 </head>
 <body>
@@ -193,61 +200,61 @@ $orders = [
         <!-- Sidebar -->
         <aside class="sidebar">
             <a href="#" class="brand-link">
-                <img src="https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png" alt="AdminLTE Logo">
-                <span class="brand-text">Etronic Solution</span>
+                <span class="brand-text">
+                  <img src="./images/etronic.png" alt="AdminLTE Logo">
+                </span>
             </a>
 
             <div class="user-panel">
-                <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" alt="User Image">
                 <div class="info">
-                    <span>Amila Shanaka</span>
+                    <span>Etronic Solution</span>
                 </div>
             </div>
 
             <div class="sidebar-search">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" class="form-control" id="sidebarSearch" placeholder="Search menu...">
             </div>
 
             <nav class="mt-2">
-                <ul class="nav nav-sidebar">
+                <ul class="nav nav-sidebar" id="sidebarMenu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active" id="dashboard-link">
+                        <a href="#" class="nav-link active" id="dashboard-link" data-search="dashboard home">
                             <i class="bi bi-speedometer2"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sales-section" class="nav-link">
+                        <a href="#sales-section" class="nav-link" data-search="sales revenue income">
                             <i class="bi bi-graph-up"></i>
                             <span>Sales</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sales-graph-section" class="nav-link">
+                        <a href="#sales-graph-section" class="nav-link" data-search="sales graph charts statistics">
                             <i class="bi bi-bar-chart"></i>
                             <span>Sales Graph</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#location-section" class="nav-link">
+                        <a href="#location-section" class="nav-link" data-search="location maps office address">
                             <i class="bi bi-geo-alt"></i>
                             <span>Location</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#chat-section" class="nav-link">
+                        <a href="#chat-section" class="nav-link" data-search="chat message communication">
                             <i class="bi bi-chat-dots"></i>
                             <span>Direct Chat</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#todo-section" class="nav-link">
+                        <a href="#todo-section" class="nav-link" data-search="todo task list tasks">
                             <i class="bi bi-check2-square"></i>
                             <span>To Do List</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#calendar-section" class="nav-link">
+                        <a href="#calendar-section" class="nav-link" data-search="calendar schedule dates events">
                             <i class="bi bi-calendar3"></i>
                             <span>Calendar</span>
                         </a>
@@ -514,6 +521,24 @@ $orders = [
                     section.scrollIntoView({
                         behavior: 'smooth'
                     });
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('sidebarSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const menuItems = document.querySelectorAll('#sidebarMenu .nav-item');
+            
+            menuItems.forEach(item => {
+                const link = item.querySelector('.nav-link');
+                const text = link.textContent.toLowerCase();
+                const searchData = link.getAttribute('data-search') || '';
+                
+                if (text.includes(searchTerm) || searchData.toLowerCase().includes(searchTerm)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
                 }
             });
         });
