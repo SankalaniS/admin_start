@@ -178,6 +178,14 @@ $orders = [
                 margin-left: 250px;
             }
         }
+
+        .section {
+            scroll-margin-top: 70px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -203,56 +211,45 @@ $orders = [
             <nav class="mt-2">
                 <ul class="nav nav-sidebar">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
+                        <a href="#" class="nav-link active" id="dashboard-link">
                             <i class="bi bi-speedometer2"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-grid"></i>
-                            <span>Widgets</span>
-                            <span class="badge bg-danger float-end">New</span>
+                        <a href="#sales-section" class="nav-link">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Sales</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-layout-text-window"></i>
-                            <span>Layout Options</span>
-                            <span class="badge bg-info float-end">6</span>
+                        <a href="#sales-graph-section" class="nav-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Sales Graph</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-pie-chart"></i>
-                            <span>Charts</span>
+                        <a href="#location-section" class="nav-link">
+                            <i class="bi bi-geo-alt"></i>
+                            <span>Location</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-tree"></i>
-                            <span>UI Elements</span>
+                        <a href="#chat-section" class="nav-link">
+                            <i class="bi bi-chat-dots"></i>
+                            <span>Direct Chat</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-pencil-square"></i>
-                            <span>Forms</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="todolist.php" class="nav-link">
-                            <i class="bi bi-todolist"></i>
+                        <a href="#todo-section" class="nav-link">
+                            <i class="bi bi-check2-square"></i>
                             <span>To Do List</span>
-                            <span class="badge bg-info float-end">2</span>
                         </a>
                     </li>
-                    
                     <li class="nav-item">
                         <a href="#calendar-section" class="nav-link">
                             <i class="bi bi-calendar3"></i>
                             <span>Calendar</span>
-                            <span class="badge bg-info float-end">2</span>
                         </a>
                     </li>
                 </ul>
@@ -323,7 +320,7 @@ $orders = [
                 <div class="row">
                     <!-- Area Chart -->
                     <div class="col-lg-8">
-                        <div class="card">
+                        <div id="sales-section" class="card section">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h5 class="mb-0">Sales</h5>
                                 <div class="btn-group">
@@ -338,7 +335,7 @@ $orders = [
                     </div>
                     <!-- Map -->
                     <div class="col-lg-4">
-                        <div class="card h-100">
+                        <div id="location-section" class="card h-100 section">
                             <div class="card-header">
                                 <h5 class="mb-0">Company Locations</h5>
                             </div>
@@ -352,7 +349,7 @@ $orders = [
                 <div class="row mt-4">
                     <!-- Chat box -->
                     <div class="col-lg-8">
-                        <div class="card">
+                        <div id="chat-section" class="card section">
                             <div class="card-header">
                                 <h5 class="mb-0">Direct Chat</h5>
                             </div>
@@ -362,7 +359,7 @@ $orders = [
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="card h-100">
+                        <div id="sales-graph-section" class="card h-100 section">
                             <div class="card-header">
                                 <h5 class="mb-0">Sales Graph</h5>
                             </div>
@@ -396,7 +393,7 @@ $orders = [
                 <div class="row mt-4">
                     <!-- To Do list -->
                     <div class="col-lg-8">
-                        <div class="card">
+                        <div id="todo-section" class="card section">
                             <div class="card-header">
                                 <h5 class="mb-0">To Do List</h5>
                             </div>
@@ -405,8 +402,8 @@ $orders = [
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4" id="calendar-section">
-                        <div class="card h-100">
+                    <div class="col-lg-4">
+                        <div id="calendar-section" class="card h-100 section">
                             <div class="card-header">
                                 <h5 class="mb-0">Calendar</h5>
                             </div>
@@ -499,11 +496,25 @@ $orders = [
             document.querySelector('.content-wrapper').classList.toggle('active');
         });
 
-        // Smooth scroll to calendar section
-        document.querySelector('a[href="#calendar-section"]').addEventListener('click', function(e) {
+        // Dashboard link - scroll to top
+        document.getElementById('dashboard-link').addEventListener('click', function(e) {
             e.preventDefault();
-            document.getElementById('calendar-section').scrollIntoView({
+            window.scrollTo({
+                top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for all other section links
+        document.querySelectorAll('a[href^="#"]:not(#dashboard-link)').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
