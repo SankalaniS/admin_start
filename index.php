@@ -542,6 +542,7 @@ $orders = [
                 }
             });
         });
+        
     </script>
 </body>
 </html>
