@@ -33,7 +33,6 @@ This is an **Admin Dashboard** built with **PHP, HTML, Bootstrap, and Chart.js**
    ```
    http://localhost/admin-dashboard/
    ```
-
 ## Configuration
 - **Database**: If a database is required, create one and import `database.sql` (if available).
 - **Google Maps API**: Replace the API key in `map.php` with your Google Maps API key.

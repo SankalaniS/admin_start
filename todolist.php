@@ -131,7 +131,6 @@
             document.getElementById("taskPriority").value = "low";
             document.querySelector(".modal .btn-close").click();
         });
-        
         document.querySelectorAll(".task-item").forEach(addTaskEvents);
     });
 </script>
