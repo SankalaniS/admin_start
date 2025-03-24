@@ -66,6 +66,37 @@ $orders = [
             margin-left: 250px;
         }
 
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        body.dark-mode .navbar {
+            background-color: #1f1f1f;
+        }
+
+        body.dark-mode .sidebar {
+            background-color: #1f1f1f;
+        }
+
+        body.dark-mode .card {
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
+        body.dark-mode .content-wrapper {
+            background-color: #181818; /* Darker background for content */
+        }
+
+        body.dark-mode .nav-link {
+            color: #c2c7d0;
+        }
+
+        body.dark-mode .nav-link.active {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
         .brand-link {
             display: flex;
             align-items: center;
@@ -287,6 +318,9 @@ $orders = [
                         <i class="bi bi-list"></i>
                     </button>
                     <a class="navbar-brand" href="#">Admin Dashboard</a>
+                    <button class="btn btn-dark ms-auto" id="darkModeToggle">
+                        <i class="bi bi-moon" id="darkModeIcon"></i>
+                    </button>
                 </div>
             </nav>
 
@@ -520,6 +554,22 @@ $orders = [
             
             sidebar.classList.toggle('active');
             contentWrapper.classList.toggle('active');
+        });
+
+        document.getElementById('darkModeToggle').addEventListener('click', function () {
+            const body = document.body;
+            const icon = document.getElementById('darkModeIcon');
+
+            body.classList.toggle('dark-mode');
+
+            // Toggle icon between moon and sun
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('bi-moon');
+                icon.classList.add('bi-sun');
+            } else {
+                icon.classList.remove('bi-sun');
+                icon.classList.add('bi-moon');
+            }
         });
 
         // Dashboard link - scroll to top
