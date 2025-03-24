@@ -32,22 +32,38 @@ $orders = [
             min-height: 100vh;
         }
         
+        /* Sidebar styles */
         .sidebar {
             width: 250px;
             background: #343a40;
             color: #fff;
             position: fixed;
             height: 100vh;
-            overflow-y: auto;
-            transition: all 0.3s;
+            overflow-y: auto; /* Ensure items are scrollable */
+            margin-left: -250px; /* Initially hidden */
+            transition: margin-left 0.3s;
             z-index: 1000;
+        }
+
+        /* When active, show the sidebar */
+        .sidebar.active {
+            margin-left: 0;
+        }
+
+        /* Ensure sidebar items are visible */
+        .nav-sidebar .nav-item {
+            display: block; /* Ensure items are displayed */
         }
 
         .content-wrapper {
             flex: 1;
-            margin-left: 250px;
+            margin-left: 0;
             min-height: 100vh;
             background: #f4f6f9;
+            transition: margin-left 0.3s;
+        }
+        .content-wrapper.active {
+            margin-left: 250px;
         }
 
         .brand-link {
@@ -499,8 +515,11 @@ $orders = [
 
         // Sidebar toggle functionality
         document.getElementById('sidebarToggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('active');
-            document.querySelector('.content-wrapper').classList.toggle('active');
+            const sidebar = document.querySelector('.sidebar');
+            const contentWrapper = document.querySelector('.content-wrapper');
+            
+            sidebar.classList.toggle('active');
+            contentWrapper.classList.toggle('active');
         });
 
         // Dashboard link - scroll to top
