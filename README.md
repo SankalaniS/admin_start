@@ -56,7 +56,7 @@ This is an **Admin Dashboard** built with **PHP, HTML, Bootstrap, and Chart.js**
 - Add export functionality for charts and reports.
 
 ## Author
-- **Your Name** (Replace with your actual name)
+- **Sankalani** 
 
 ## License
 This project is open-source and available under the [MIT License](LICENSE).
