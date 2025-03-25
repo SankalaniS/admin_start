@@ -201,7 +201,7 @@ $orders = [
         }
 
         .map-container {
-            height: 600px;
+            height: 500px;
             background-color: #f8f9fa;
             border-radius: 8px;
         }
@@ -296,7 +296,7 @@ $orders = [
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sales-graph-section" class="nav-link" data-search="sales graph charts statistics">
+                        <a href="#yearly-sales-section" class="nav-link" data-search="sales graph charts statistics">
                             <i class="bi bi-bar-chart"></i>
                             <span>Sales Graph</span>
                         </a>
@@ -413,7 +413,7 @@ $orders = [
                 <div class="row mt-4">
                     <!-- Chat box -->
                     <div class="col-lg-8">
-                        <div id="chat-section" class="card section">
+                        <div id="chat-section" class="card h-100 section">
                             <div class="card-header">
                                 <h5 class="mb-0">Direct Chat</h5>
                             </div>
