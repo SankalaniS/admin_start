@@ -9,7 +9,14 @@ $monthlyData = [
     ['month' => 'June', 'sales' => 30, 'target' => 55],
     ['month' => 'July', 'sales' => 90, 'target' => 40],
 ];
-
+// Yearly sales data
+$yearlyData = [
+    ['year' => '2020', 'sales' => 120],
+    ['year' => '2021', 'sales' => 150],
+    ['year' => '2022', 'sales' => 180],
+    ['year' => '2023', 'sales' => 200],
+    ['year' => '2024', 'sales' => 220],
+];
 $orders = [
     ['id' => 1, 'customer' => 'John Doe', 'product' => 'Laptop', 'amount' => 999.99, 'date' => '2024-03-10'],
     ['id' => 2, 'customer' => 'Jane Smith', 'product' => 'Phone', 'amount' => 699.99, 'date' => '2024-03-09'],
@@ -194,7 +201,7 @@ $orders = [
         }
 
         .map-container {
-            height: 400px;
+            height: 600px;
             background-color: #f8f9fa;
             border-radius: 8px;
         }
@@ -277,12 +284,6 @@ $orders = [
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#sales-graph-section" class="nav-link" data-search="sales graph charts statistics">
-                            <i class="bi bi-bar-chart"></i>
-                            <span>Sales Graph</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#location-section" class="nav-link" data-search="location maps office address">
                             <i class="bi bi-geo-alt"></i>
                             <span>Location</span>
@@ -292,6 +293,12 @@ $orders = [
                         <a href="#chat-section" class="nav-link" data-search="chat message communication">
                             <i class="bi bi-chat-dots"></i>
                             <span>Direct Chat</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sales-graph-section" class="nav-link" data-search="sales graph charts statistics">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Sales Graph</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -416,12 +423,12 @@ $orders = [
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div id="sales-graph-section" class="card h-100 section">
+                        <div id="yearly-sales-section" class="card h-100 section">
                             <div class="card-header">
                                 <h5 class="mb-0">Sales Graph</h5>
                             </div>
                             <div class="card-body">
-                                <canvas id="salesChart" height="200"></canvas>
+                                <canvas id="yearlySalesChart" height="200"></canvas>
                                 <div class="row mt-4">
                                     <div class="col-4 text-center">
                                         <div class="progress" style="height: 100px; width: 100px; margin: auto;">
@@ -523,7 +530,45 @@ $orders = [
                 }
             }
         });
+        const yearlyCtx = document.getElementById('yearlySalesChart').getContext('2d');
 
+        // Create the year-wise sales chart
+        new Chart(yearlyCtx, {
+            type: 'line',
+            data: {
+                labels: <?php echo json_encode(array_column($yearlyData, 'year')); ?>, // Years
+                datasets: [{
+                    label: 'Yearly Sales',
+                    data: <?php echo json_encode(array_column($yearlyData, 'sales')); ?>, // Sales data
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    tension: 0.4,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
         // Initialize Google Maps
         function initMap() {
             const map = new google.maps.Map(document.getElementById('map'), {
