@@ -397,6 +397,7 @@ $orders = [
                             </div>
                         </div>
                     </div>
+                    
                     <!-- Map -->
                     <div class="col-lg-4">
                         <div id="location-section" class="card h-100 section">
