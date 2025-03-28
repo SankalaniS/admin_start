@@ -617,7 +617,6 @@ $orders = [
                 icon.classList.add('bi-moon');
             }
         });
-
         // Dashboard link - scroll to top
         document.getElementById('dashboard-link').addEventListener('click', function(e) {
             e.preventDefault();
@@ -626,7 +625,6 @@ $orders = [
                 behavior: 'smooth'
             });
         });
-
         // Smooth scroll for all other section links
         document.querySelectorAll('a[href^="#"]:not(#dashboard-link)').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
