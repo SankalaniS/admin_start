@@ -474,7 +474,7 @@ $orders = [
                             </div>
                             <div class="card-body">
                                 <div id="calendar">
-                                    <?php include 'calender.html'; ?>
+                                    <?php include 'calendar.html'; ?>
                                 </div>
                             </div>
                         </div>
